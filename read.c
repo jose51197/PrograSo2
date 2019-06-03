@@ -7,13 +7,12 @@
 #include <stdio.h>
 
 #define SHMSZ     27
-
+#define PAGESIZE 32
 main()
 {
-    int shmid;
+    int shmid,pageCount;
     key_t key;
-    char *shm, *s,*sAux;
-
+    char *pages, *s,*sAux;
     /*
      * We need to get the segment named
      * "5678", created by the server.
@@ -31,25 +30,24 @@ main()
     /*
      * Now we attach the segment to our data space.
      */
-    if ((shm = shmat(shmid, NULL, 0)) == (char *) -1) {
-        perror("shmat");
+    
+    if ((pages = shmat(shmid, NULL, 0)) == (char *) -1) {
+        perror("shmat1");
         exit(1);
     }
-
+    pageCount=atoi(pages);
+    printf("Total de paginas %d", pageCount);
+    
     /*
      * Now read what the server put in the memory.
      */
-    printf("%d \n",shm);
-    for (s = shm; *s != '*'; s+=256){
-        for (sAux = s; *sAux != NULL; sAux++)
-            putchar(*sAux);
-        putchar('\n');
+    while(1){
+        printf("Paginas: \n");
+        for(int page =1; page<=pageCount+1;page++){
+            printf(pages+(PAGESIZE*page));
+            printf("\n");
+        }
+        sleep(5);
     }
-
-    /*
-     * Finally, change the first character of the 
-     * segment to '*', indicating we have read 
-     * the segment.
-     */
     exit(0);
 }

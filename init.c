@@ -2,8 +2,9 @@
 #include <sys/ipc.h>
 #include <sys/shm.h>
 #include <stdio.h>
-
-#define SHMSZ     27
+//ipcrm -M 5678
+//ipcs -m
+#define SHMSZ    16384
 
 main()
 {
@@ -15,7 +16,7 @@ main()
     char c;
     int shmid;
     key_t key;
-    char (*shm)[size+1][256];
+    char (*shm)[size+2][32];
 
     key = 5678;
 
@@ -34,6 +35,7 @@ main()
     for(int i=1;i<=size;i++){
         strcpy((*shm)[i], "Available");
     }
+    strcpy((*shm)[size+1], "Fin");
     printf("Shared memory done");
     exit(0);
 }
