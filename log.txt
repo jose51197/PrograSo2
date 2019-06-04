@@ -1,0 +1,105 @@
+Thread 2 entro de la linea 10 a la linea 12 hora: 2019-6-3 17:42:20 
+Thread 0 entro de la linea 1 a la linea 5 hora: 2019-6-3 17:42:59 
+Thread 1 entro de la linea 5 a la linea 14 hora: 2019-6-3 17:43:0 
+Thread 0 entro de la linea 0 a la linea 4 date: 2019-6-3 18:58:27 
+Thread 1 entro de la linea 4 a la linea 9 date: 2019-6-3 18:58:29 
+Thread 2 No logro encontrar espacio  date: -2-8-2019 6:3:18 
+Thread 3 No logro encontrar espacio  date: -2-8-2019 6:3:18 
+Thread 4 entro de la linea 9 a la linea 10 date: 2019-6-3 18:58:33 
+Thread 5 No logro encontrar espacio  date: -2-0-2019 6:3:18 
+Thread 6 No logro encontrar espacio  date: -2-5-2019 6:3:18 
+Thread 7 No logro encontrar espacio  date: -2-5-2019 6:3:18 
+Thread 8 No logro encontrar espacio  date: -2-3-2019 6:3:18 
+Thread 9 No logro encontrar espacio  date: -2-2-2019 6:3:18 
+Thread 10 entro de la linea 10 a la linea 11 date: 2019-6-3 18:58:41 
+Thread 11 No logro encontrar espacio  date: -2-0-2019 6:3:18 
+Thread 12 No logro encontrar espacio  date: -2-1-2019 6:3:18 
+Thread 13 No logro encontrar espacio  date: -2-1-2019 6:3:18 
+Thread 0 desocupo su espacio de la linea 0 a la linea 4 date: 2019-6-3 18:58:27 
+Thread 14 No logro encontrar espacio  date: -2-8-2019 6:3:18 
+Thread 15 entro de la linea 0 a la linea 1 date: 2019-6-3 18:58:47 
+Thread 16 No logro encontrar espacio  date: -2-5-2019 6:3:18 
+Thread 1 desocupo su espacio de la linea 4 a la linea 9 date: 2019-6-3 18:58:29 
+Thread 17 No logro encontrar espacio  date: -2-8-2019 6:3:18 
+Thread 18 No logro encontrar espacio  date: -2-8-2019 6:3:18 
+Thread 19 No logro encontrar espacio  date: -2-8-2019 6:3:18 
+Thread 20 entro de la linea 1 a la linea 8 date: 2019-6-3 18:58:54 
+Thread 21 No logro encontrar espacio  date: -2-1-2019 6:3:18 
+Thread 22 No logro encontrar espacio  date: -2-6-2019 6:3:18 
+Thread 23 No logro encontrar espacio  date: -2-3-2019 6:3:18 
+Thread 24 No logro encontrar espacio  date: -2-5-2019 6:3:18 
+Thread 10 desocupo su espacio de la linea 10 a la linea 11 date: 2019-6-3 18:58:41 
+Thread 25 No logro encontrar espacio  date: -2-7-2019 6:3:18 
+Thread 26 No logro encontrar espacio  date: -2-8-2019 6:3:18 
+Thread 4 desocupo su espacio de la linea 9 a la linea 10 date: 2019-6-3 18:58:33 
+Thread 27 No logro encontrar espacio  date: -2-4-2019 6:3:18 
+Thread 28 entro de la linea 8 a la linea 9 date: 2019-6-3 18:59:7 
+Thread 29 No logro encontrar espacio  date: -2-2-2019 6:3:18 
+Thread 30 No logro encontrar espacio  date: -2-1-2019 6:3:18 
+Thread 31 No logro encontrar espacio  date: -2-6-2019 6:3:18 
+Thread 32 entro de la linea 9 a la linea 10 date: 2019-6-3 18:59:12 
+Thread 33 No logro encontrar espacio  date: -2-5-2019 6:3:18 
+Thread 34 No logro encontrar espacio  date: -2-6-2019 6:3:18 
+Thread 35 No logro encontrar espacio  date: -2-3-2019 6:3:18 
+Thread 15 desocupo su espacio de la linea 0 a la linea 1 date: 2019-6-3 18:58:47 
+Thread 36 No logro encontrar espacio  date: -2-7-2019 6:3:18 
+Thread 37 No logro encontrar espacio  date: -2-8-2019 6:3:18 
+Thread 38 No logro encontrar espacio  date: -2-0-2019 6:3:18 
+Thread 39 entro de la linea 0 a la linea 1 date: 2019-6-3 18:59:23 
+Thread 40 No logro encontrar espacio  date: -2-8-2019 6:3:18 
+Thread 41 No logro encontrar espacio  date: -2-8-2019 6:3:18 
+Thread 42 No logro encontrar espacio  date: -2-4-2019 6:3:18 
+Thread 43 No logro encontrar espacio  date: -2-8-2019 6:3:18 
+Thread 44 No logro encontrar espacio  date: -2-5-2019 6:3:18 
+Thread 45 No logro encontrar espacio  date: -2-4-2019 6:3:18 
+Thread 46 No logro encontrar espacio  date: -2-6-2019 6:3:18 
+Thread 28 desocupo su espacio de la linea 8 a la linea 9 date: 2019-6-3 18:59:7 
+Thread 47 No logro encontrar espacio  date: -2-0-2019 6:3:18 
+Thread 48 No logro encontrar espacio  date: -2-3-2019 6:3:18 
+Thread 49 No logro encontrar espacio  date: -2-0-2019 6:3:18 
+Thread 20 desocupo su espacio de la linea 1 a la linea 8 date: 2019-6-3 18:58:54 
+Thread 50 No logro encontrar espacio  date: -2-8-2019 6:3:18 
+Thread 51 entro de la linea 1 a la linea 6 date: 2019-6-3 18:59:40 
+Thread 52 No logro encontrar espacio  date: -2-2-2019 6:3:18 
+Thread 53 entro de la linea 6 a la linea 8 date: 2019-6-3 18:59:43 
+Thread 54 No logro encontrar espacio  date: -2-5-2019 6:3:18 
+Thread 55 No logro encontrar espacio  date: -2-1-2019 6:3:18 
+Thread 56 No logro encontrar espacio  date: -2-8-2019 6:3:18 
+Thread 57 entro de la linea 8 a la linea 9 date: 2019-6-3 18:59:49 
+Thread 58 No logro encontrar espacio  date: -2-6-2019 6:3:18 
+Thread 39 desocupo su espacio de la linea 0 a la linea 1 date: 2019-6-3 18:59:23 
+Thread 32 desocupo su espacio de la linea 9 a la linea 10 date: 2019-6-3 18:59:12 
+Thread 59 No logro encontrar espacio  date: -2-5-2019 6:3:18 
+Thread 60 entro de la linea 9 a la linea 10 date: 2019-6-3 18:59:54 
+Thread 61 entro de la linea 0 a la linea 1 date: 2019-6-3 18:59:56 
+Thread 62 No logro encontrar espacio  date: -2-6-2019 6:3:18 
+Thread 63 No logro encontrar espacio  date: -2-8-2019 6:3:18 
+Thread 64 No logro encontrar espacio  date: -2-5-2019 6:3:19 
+Thread 65 No logro encontrar espacio  date: -2-4-2019 6:3:19 
+Thread 66 No logro encontrar espacio  date: -2-7-2019 6:3:19 
+Thread 67 No logro encontrar espacio  date: -2-4-2019 6:3:19 
+Thread 68 No logro encontrar espacio  date: -2-0-2019 6:3:19 
+Thread 69 No logro encontrar espacio  date: -2-1-2019 6:3:19 
+Thread 51 desocupo su espacio de la linea 1 a la linea 6 date: 2019-6-3 18:59:40 
+Thread 70 entro de la linea 1 a la linea 6 date: 2019-6-3 19:0:7 
+Thread 0 entro de la linea 0 a la linea 2 date: 2019-6-3 19:2:39 
+Thread 0 desocupo su espacio de la linea 0 a la linea 2 date: 2019-6-3 19:2:39 
+Thread 1 entro de la linea 0 a la linea 4 date: 2019-6-3 19:3:22 
+Thread 1 desocupo su espacio de la linea 0 a la linea 4 date: 2019-6-3 19:3:22 
+Thread 2 entro de la linea 0 a la linea 4 date: 2019-6-3 19:3:57 
+Thread 3 entro de la linea 4 a la linea 12 date: 2019-6-3 19:4:28 
+Thread 2 desocupo su espacio de la linea 0 a la linea 4 date: 2019-6-3 19:3:57 
+Thread 4 No logro encontrar espacio  date: -2-7-2019 6:3:19 
+Thread 3 desocupo su espacio de la linea 4 a la linea 12 date: 2019-6-3 19:4:28 
+Thread 5 entro de la linea 0 a la linea 9 date: 2019-6-3 19:5:57 
+Thread 5 desocupo su espacio de la linea 0 a la linea 9 date: 2019-6-3 19:5:57 
+Thread 6 entro de la linea 0 a la linea 8 date: 2019-6-3 19:6:34 
+Thread 0 entro de la linea 0 a la linea 8 date: 2019-6-3 19:7:34 
+Thread 1 entro de la linea 8 a la linea 9 date: 2019-6-3 19:8:12 
+Thread 0 desocupo su espacio de la linea 0 a la linea 8 date: 2019-6-3 19:7:34 
+Thread 2 entro de la linea 0 a la linea 7 date: 2019-6-3 19:8:46 
+Thread 1 desocupo su espacio de la linea 8 a la linea 9 date: 2019-6-3 19:8:12 
+Thread 3 entro de la linea 7 a la linea 13 date: 2019-6-3 19:9:17 
+Thread 2 desocupo su espacio de la linea 0 a la linea 7 date: 2019-6-3 19:8:46 
+Thread 3 desocupo su espacio de la linea 7 a la linea 13 date: 2019-6-3 19:9:17 
+Thread 4 entro de la linea 0 a la linea 6 date: 2019-6-3 19:10:16 
