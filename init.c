@@ -5,6 +5,7 @@
 //ipcrm -M 5678
 //ipcs -m
 #define SHMSZ    16384
+#define SHMSZ2   20
 
 main()
 {
@@ -16,7 +17,8 @@ main()
     char c;
     int shmid;
     key_t key;
-    char (*shm)[size+2][32];
+    char (*shm)[size+3][40];
+    char (*shmB)[20][32];
 
     key = 5678;
 
@@ -32,10 +34,26 @@ main()
     }
     printf("%d \n",shm);
     strcpy((*shm)[0], strSize);
-    for(int i=1;i<=size;i++){
+    strcpy((*shm)[1], "None");
+    for(int i=2;i<=size;i++){
         strcpy((*shm)[i], "Available");
     }
     strcpy((*shm)[size+1], "Fin");
-    printf("Shared memory done");
+    key = 5679;
+
+    if ((shmid = shmget(key, SHMSZ2, IPC_CREAT | 0666)) < 0) {
+        perror("shmget");
+        exit(1);
+    }
+
+
+    if ((shmB = shmat(shmid, NULL, 0)) == (char *) -1) {
+        perror("shmat");
+        exit(1);
+    }
+    for(int i=0;i<20;i++){
+        strcpy((*shmB)[i], "Available");
+    }
+    printf("Shared memory done \n");
     exit(0);
 }

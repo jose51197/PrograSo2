@@ -11,7 +11,7 @@
 #include <time.h>
 
 #define SHMSZ     27
-#define PAGESIZE 32
+#define PAGESIZE 40
 void test(){printf("test\n");}
 
 int fit;//1 worst 2 best 3 first
@@ -19,9 +19,10 @@ fit=0;
    
 int shmid;
 key_t key=5678;
-char *pages,*line,*lineBuffer;
+char *pages,*line,*lineBuffer,*blocked;
 int pageCount;
 pthread_mutex_t table_mutex;
+pthread_mutex_t blocked_mutex;
 pthread_mutex_t file_mutex;
 FILE * log;
 
@@ -30,10 +31,23 @@ typedef struct proceso{
 	int duracion;
 	int tamano;
 	int id;
+    int bPos;
 };
 
 void setPage(int i, char* text){
     strcpy( pages + PAGESIZE*i , text);
+}
+
+int setBlocked(int id){
+    char strID[12];
+    sprintf(strID, "%d", id);
+    for(int i=0;i<20;i++){
+        if((blocked+(i*32))[0]=='A'){
+            strcpy(blocked+(i*32),strID);
+            return i;
+        }
+    }
+    return -1;
 }
 
 char* getPage(int page){
@@ -99,13 +113,22 @@ int firstFit(int size){
 
 
 void *procesar(void *input){
+    time_t t = time(NULL);
+    struct tm tm ;
     struct proceso *pr=input;
 	struct proceso p=*pr;
     char strID[12];
     char available[12]="Available";
     printf("Thread %d con duracion %d\n",p.id,p.duracion);
     int space=-2;
+    pthread_mutex_lock(&blocked_mutex);
+    p.bPos=setBlocked(p.id);
+    pthread_mutex_unlock(&blocked_mutex);
     pthread_mutex_lock(&table_mutex);
+    strcpy(blocked+(p.bPos*32),"Available");
+    sprintf(strID, "%d", p.id);
+    setPage(-1,strID);
+    sleep(2);
     switch(fit){
         
         case 1:space = worstFit(p.tamano);break;
@@ -115,7 +138,6 @@ void *procesar(void *input){
     }
     if(space != -2){//si hay espacio
       char str[20] = "Ocupied ID: ";
-      sprintf(strID, "%d", p.id);
       strcat(str,strID);
       strcat(str," Size: ");
       sprintf(strID, "%d", p.tamano);
@@ -126,18 +148,29 @@ void *procesar(void *input){
       for(int i=0; i<p.tamano;i++){
           setPage(space+i,str);
       }
+      setPage(-1,"None");
       pthread_mutex_unlock(&table_mutex);
-      time_t t = time(NULL);
-      struct tm tm = *localtime(&t);
-      fprintf (log,"Thread %d entro de la linea %d a la linea %d hora: %d-%d-%d %d:%d:%d\n", p.id, space,space+p.tamano,tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+      tm = *localtime(&t);
+      log= fopen("log.txt","a");
+      fprintf (log,"Thread %d entro de la linea %d a la linea %d date: %d-%d-%d %d:%d:%d \n", p.id, space,space+p.tamano,tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+      fclose (log);
       sleep(p.duracion);
       for(int i=0; i<p.tamano;i++){
           setPage(space+i,available);
       }
+      tm = *localtime(&t);
+      log= fopen("log.txt","a");
+      fprintf (log,"Thread %d desocupo su espacio de la linea %d a la linea %d date: %d-%d-%d %d:%d:%d \n", p.id, space,space+p.tamano,tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+      fclose (log);
       printf("Thread %d termino\n",p.id);
     }
     else{
-        pthread_mutex_unlock(&table_mutex);
+       setPage(-1,"None");
+      pthread_mutex_unlock(&table_mutex);
+      tm = *localtime(&t);
+      log= fopen("log.txt","a");
+      fprintf (log,"Thread %d No logro encontrar espacio  date: %d-%d-%d %d:%d:%d \n", p.id, space,space+p.tamano,tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+      fclose (log);
         printf("Thread %d no encontro espacio\n",p.id);
         
     }
@@ -149,7 +182,6 @@ void *procesar(void *input){
 
 
 int main(){
-    log= fopen("log.txt","w");
     srand(time(NULL));
     while(fit!=1 && fit!=2 && fit!=3){
         printf("Algoritmo a utilizar:\n");
@@ -169,11 +201,16 @@ int main(){
         exit(1);
     }
     pageCount=atoi(pages);
-    pages=pages+PAGESIZE;
-    setPage(0,"Occupied");
-    int sp= worstFit(1);
-    printf("%d",sp);
+    pages=pages+PAGESIZE*2;
     int id=0;
+    if ((shmid = shmget(key+1, 20, 0666)) < 0) {
+        perror("shmget1");
+        exit(1);
+    }
+    if ((blocked = shmat(shmid, NULL, 0)) == (char *) -1) {
+        perror("shmat1");
+        exit(1);
+    }
     while(1){
         printf("Ejecutando\n");
         struct proceso *p=malloc(sizeof(*p));
@@ -184,7 +221,7 @@ int main(){
         pthread_t thread;
         pthread_create(&thread, NULL, procesar, p);
         pthread_detach(thread);
-        sleep(randomInt(1,2));//cambiar a lo que diga shumman
+        sleep(randomInt(30,60));//cambiar a lo que diga shumman
     }
 }
 //

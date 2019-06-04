@@ -6,46 +6,58 @@
 #include <sys/shm.h>
 #include <stdio.h>
 
-#define SHMSZ     27
-#define PAGESIZE 32
+#define SHMSZ     20
+#define PAGESIZE 40
 main()
 {
     int shmid,pageCount;
     key_t key;
-    char *pages, *s,*sAux;
-    /*
-     * We need to get the segment named
-     * "5678", created by the server.
-     */
+    char *pages, *blocked;
+    
     key = 5678;
 
-    /*
-     * Locate the segment.
-     */
     if ((shmid = shmget(key, SHMSZ, 0666)) < 0) {
         perror("shmget");
         exit(1);
     }
 
-    /*
-     * Now we attach the segment to our data space.
-     */
     
     if ((pages = shmat(shmid, NULL, 0)) == (char *) -1) {
+        perror("shmat1");
+        exit(1);
+    }
+    
+    if ((shmid = shmget(key+1, SHMSZ, 0666)) < 0) {
+        perror("shmget");
+        exit(1);
+    }
+
+    
+    if ((blocked = shmat(shmid, NULL, 0)) == (char *) -1) {
         perror("shmat1");
         exit(1);
     }
     pageCount=atoi(pages);
     printf("Total de paginas %d", pageCount);
     
-    /*
-     * Now read what the server put in the memory.
-     */
     while(1){
+        
+        printf("Actual buscando memoria: \n");
+        printf(pages+PAGESIZE);
+        printf("\n");
+        
         printf("Paginas: \n");
-        for(int page =1; page<=pageCount+1;page++){
+        for(int page =2; page<=pageCount+1;page++){
             printf(pages+(PAGESIZE*page));
             printf("\n");
+        }
+        
+        printf("Bloqueadas: \n");
+        for(int page =0; page<20;page++){
+            if((blocked+(32*page))[0]!='A'){
+              printf(blocked+(32*page));
+              printf("\n");  
+            }
         }
         sleep(5);
     }
