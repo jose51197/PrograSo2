@@ -103,3 +103,4 @@ Thread 3 entro de la linea 7 a la linea 13 date: 2019-6-3 19:9:17
 Thread 2 desocupo su espacio de la linea 0 a la linea 7 date: 2019-6-3 19:8:46 
 Thread 3 desocupo su espacio de la linea 7 a la linea 13 date: 2019-6-3 19:9:17 
 Thread 4 entro de la linea 0 a la linea 6 date: 2019-6-3 19:10:16 
+Thread 0 entro de la linea 0 a la linea 2 date: 2019-6-3 19:23:48 

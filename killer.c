@@ -1,11 +1,14 @@
-#include <iostream> 
+#include <stdio.h> 
 #include <sys/ipc.h> 
 #include <sys/shm.h> 
 #include <stdio.h> 
-using namespace std; 
 
 int main() 
 { 
+    
+    system("killall read");
+    system("killall productor");
+    
 	// ftok to generate unique key 
 	key_t key = 5678;
 
